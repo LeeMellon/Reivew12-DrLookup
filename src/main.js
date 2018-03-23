@@ -13,7 +13,7 @@ $("#dr-name-bttn").click(function(){
     var drBox = drQuery.parseResponce(response)
     drQuery.parseDisplay(drBox)
 }, function(error){
-  $("#results").text("There was an error with you Search: ${error.message}")
+  $("#results").text(`There was an error with you Search: ${error.message}`)
   })
  })
 
@@ -28,7 +28,7 @@ $("#dr-name-bttn").click(function(){
      var drBox = drQuery.parseResponce(response)
      drQuery.parseDisplay(drBox)
  }, function(error){
-   $("#results").text("There was an error with you Search: ${error.message}")
+   $("#results").text(`There was an error with you Search: ${error.message}`)
    })
   })
 

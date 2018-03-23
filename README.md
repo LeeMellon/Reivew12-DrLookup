@@ -6,11 +6,23 @@
 
 ## Description
 
-_{Dr LookUp is an app for looking up medical care in the Portland area. As of this version it allows the user to search by Dr name and by medical issue.}_
+_{Dr LookUp is an app for looking up medical practitioners in the Portland area, either by name or by relation to a user entered symptom.}_
 
 ## Specs
 
-* 
+* User can enter a medical issue into the Symptoms search field and get a list of medical practitioners in the greater Portland area that fit the search query.
+  input: sore throat
+  output: List of physicians
+
+* User can enter a full or partial name to receive a list of medical practitioners in the greater Portland area that fit the search query.
+  input: John
+  output: John Doe, Lisa Johns etc
+
+* All queries return firs t and last names, street addresses, types of practice and specialties, phone numbers, if the office is currently accepting new patients and websites where available.  
+
+* The user is altered if their queries that return no results.
+
+* Errors are handled with error messages that inform the user of the API error return.
 
 ## Setup/Installation Requirements
 

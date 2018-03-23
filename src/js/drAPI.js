@@ -95,7 +95,7 @@ parseDisplay(drBox){
       }
       let appendedDiv = '<div class="dr-div"><img src="'+ doc.drImg +'"alt=" picture of Dr' +  doc.lName + '">  <h3>' + doc.fName + ' ' + doc.lName + '</h3>' + schoolSpec + '<h4> Bio: '+ doc.bio +'</h4><br><h4> Address: '+ doc.street + '<br>' + doc.city + ',Or' + doc.zip + '</h4>' + webSite + '<h5> Accepting new Patients ' + accepting + '</h5><br></div>'
 
-      console.log(appendedDiv);
+    
       $("#results").append(appendedDiv)
     })
   }
