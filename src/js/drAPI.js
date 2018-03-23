@@ -85,7 +85,7 @@ parseDisplay(drBox){
       } else{
         accepting = "Not at this time"
       } if(doc.webAdd != ""){
-        var webSite = '<br><h5> Website : '+ doc.webAdd + '</h5><br>'
+        var webSite = '<br><h5> Website : <a href ="' + doc.webAdd + '+"></h5><br>'
       } else {
         webSite = '<br>'
       } if (doc.school != ""){
