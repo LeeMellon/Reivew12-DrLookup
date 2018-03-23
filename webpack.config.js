@@ -15,9 +15,9 @@ module.exports = {
     contentBase: './dist'
   },
   plugins: [
+  new Dotenv(),
   new UglifyJsPlugin({ sourceMap: true }),
   new CleanWebpackPlugin(['dist']),
-  new Dotenv(),
   new HtmlWebpackPlugin({
     title: 'DrLookup',
     template: './src/index.html',

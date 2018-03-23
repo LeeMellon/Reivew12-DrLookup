@@ -5,11 +5,10 @@ export class drAPI{
 
 
   nameSearch(name){
-    let apiKey = process.env.API_KEY
-    console.log("key" + apiKey);
     return new Promise(function(resolve, reject){
+      let apiKey = process.env.API_KEY
       let request = new XMLHttpRequest()
-      let url = `https://api.betterdoctor.com/2016-03-01/doctors?name=${name}&location=or-portland&skip=0&limit=10&user_key=${apiKey}`
+      let url = `https://api.betterdoctor.com/2016-03-01/doctors?name=${name}&location=or-portland&skip=0&limit=10&user_key=${process.env.API_KEY}`
       request.onload = function() {
         if (this.status == 200) {
           resolve(request.response)
@@ -27,7 +26,10 @@ export class drAPI{
 
   parseResponce(response){
     let drAPI = JSON.parse(response)
-    console.log(drAPI);
+    for(let i = 0; i < drAPI.data.length; i ++){
+      console.log(drAPI.data[i].profile.first_name);
+
+    }
   }
 
 
