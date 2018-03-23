@@ -1,12 +1,10 @@
 import $ from 'jquery';
 
-
 export class drAPI{
 
-
+  //makes an API call that returns query by name
   nameSearch(name){
     return new Promise(function(resolve, reject){
-      let apiKey = process.env.API_KEY
       let request = new XMLHttpRequest()
       let url = `https://api.betterdoctor.com/2016-03-01/doctors?name=${name}&location=or-portland&skip=0&limit=10&user_key=${process.env.API_KEY}`
       request.onload = function() {
@@ -22,9 +20,9 @@ export class drAPI{
     })
   }
 
+//makes an API call that returns query by symptom
   symptomSearch(symptom){
     return new Promise(function(resolve, reject){
-      let apiKey = process.env.API_KEY
       let request = new XMLHttpRequest()
       let url = `  https://api.betterdoctor.com/2016-03-01/doctors?query=${symptom}&location=or-portland&skip=0&limit=10&user_key=${process.env.API_KEY}`
       request.onload = function() {
@@ -40,14 +38,10 @@ export class drAPI{
     })
   }
 
-
-
-
-
+//parses the API resutls after they are handed back from the frontend
   parseResponce(response){
     let drBox = []
     let drAPI = JSON.parse(response)
-    // console.log(drAPI);
     for(let i = 0; i < drAPI.data.length; i ++){
       for(let j = 0; j < drAPI.data[i].practices.length; j ++){
       var fName = drAPI.data[i].profile.first_name
@@ -77,31 +71,34 @@ export class drAPI{
     let drBinder = {"fName": fName, "lName": lName, "drImg": drImg, "bio": bio, "school": school, "specialty" : specialty, "city": city, "street": street, "zip": zip, "phone": phone, "webAdd": webAdd, "acceptingNew": acceptingNew }
     drBox.push(drBinder)
   }
-  return drBox
+    return drBox
 }
 
+//creates the display divs for each dr returned.
 parseDisplay(drBox){
-  drBox.forEach(function(doc){
-    if(doc.acceptingNew == true){
-      var accepting = "Yes"
-      // console.log(accepting);
-    } else{
-      accepting = "Not at this time"
-    } if(doc.webAdd != ""){
-      var webSite = '<br><h5> Website : '+ doc.webAdd + '</h5><br>'
-    } else {
-      webSite = '<br>'
-    } if (doc.school != ""){
-      var schoolSpec = '<br><h4> Practice: '+ doc.school +'</h4><br><h4> Specialty: ' + doc.specialty +'</h4><br>'
-    } else {
-      schoolSpec = '<br>'
-    }
+  if(drBox.length == 0){
+    $("#results").text("Sorry, we didn't find anything matching that search. Try again.")
+  }else{
+    drBox.forEach(function(doc){
+      if(doc.acceptingNew == true){
+        var accepting = "Yes"
+      } else{
+        accepting = "Not at this time"
+      } if(doc.webAdd != ""){
+        var webSite = '<br><h5> Website : '+ doc.webAdd + '</h5><br>'
+      } else {
+        webSite = '<br>'
+      } if (doc.school != ""){
+        var schoolSpec = '<br><h4> Practice: '+ doc.school +'</h4><br><h4> Specialty: ' + doc.specialty +'</h4><br>'
+      } else {
+        schoolSpec = '<br>'
+      }
 
-    let appendedDiv = '<div class="dr-div"><img src="'+ doc.drImg +'"alt=" picture of Dr' +  doc.lName + '">  <h3>' + doc.fName + ' ' + doc.lName + '</h3>' + schoolSpec + '<h4> Bio: '+ doc.bio +'</h4><br><h4> Address: '+ doc.street + '<br>' + doc.city + 'Portland, Or' + doc.zip + '</h4>' + webSite + '<h5> Accepting new Patients ' + accepting + '</h5><br></div>'
+      let appendedDiv = '<div class="dr-div"><img src="'+ doc.drImg +'"alt=" picture of Dr' +  doc.lName + '">  <h3>' + doc.fName + ' ' + doc.lName + '</h3>' + schoolSpec + '<h4> Bio: '+ doc.bio +'</h4><br><h4> Address: '+ doc.street + '<br>' + doc.city + 'Portland, Or' + doc.zip + '</h4>' + webSite + '<h5> Accepting new Patients ' + accepting + '</h5><br></div>'
 
-    $("#results").append(appendedDiv)
-    // console.log(appendedDiv);
-})
+      $("#results").append(appendedDiv)
+    })
+  }
 }
 
 }
