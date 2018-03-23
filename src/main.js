@@ -3,18 +3,37 @@ import './styles.css';
 import { drAPI } from './js/drAPI.js'
 
 $(document).ready(function() {
-  console.log("key " + process.env.API_KEY);
-$("#form-bttn").click(function(){
+$("#dr-name-bttn").click(function(){
   let name = $("#dr-name").val()
-  console.log(name);
   $("#dr-name").val("")
 
-  let question = new drAPI
-  let promise = question.nameSearch(name)
+  let drQuery = new drAPI
+  let promise = drQuery.nameSearch(name)
   promise.then(function(response){
-    question.parseResponce(response)
+    var drBox = drQuery.parseResponce(response)
+    drQuery.parseDisplay(drBox)
 }, function(error){
   $("#results").text("There was an error with you Search: ${error.message}")
   })
  })
+
+
+ $("#symptom-form-bttn").click(function(){
+   let symptom = $("#symptom-form").val()
+   $("#symptom-form").val("")
+
+   let drQuery = new drAPI
+   let promise = drQuery.symptomSearch(symptom)
+   promise.then(function(response){
+     var drBox = drQuery.parseResponce(response)
+     drQuery.parseDisplay(drBox)
+ }, function(error){
+   $("#results").text("There was an error with you Search: ${error.message}")
+   })
+  })
+
+
+
+
+
 })
