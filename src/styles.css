@@ -1,0 +1,27 @@
+.dr-div{
+  background-color: rgb(204, 243, 255);
+  border: 5px solid rgb(194, 204, 214);
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+body{
+  border: 10px solid rgba(239, 239, 239, .5);
+  border-radius: 15px;
+}
+
+.banner{
+  width: 90%;
+  height:2em;
+  box-shadow: 10px 10px 5px #aaaaaa;
+  text-align: center;
+  font-size: 26pt;
+  margin-bottom: 40px;
+}
+
+.form-container{
+  margin: 10px;
+  transform: translate(-50%);
+  /*justify-content: center;*/
+}
