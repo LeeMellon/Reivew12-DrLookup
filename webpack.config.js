@@ -19,7 +19,7 @@ module.exports = {
   new CleanWebpackPlugin(['dist']),
   new Dotenv(),
   new HtmlWebpackPlugin({
-    title: 'XXXXX',
+    title: 'DrLookup',
     template: './src/index.html',
     inject: 'body'
   })

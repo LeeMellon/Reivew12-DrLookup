@@ -1,12 +1,16 @@
-# _{Application Name}_
+# _{Dr LookUp}_
 
-#### _{Brief description of application}, {Date of current version}_
+#### _{An app for looking up local medical care info}, {3/23/2018}_
 
-#### By _**{List of contributors}**_
+#### By _**{Ian Goodrich}**_
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+_{Dr LookUp is an app for looking up medical care in the Portland area. As of this version it allows the user to search by Dr name and by medical issue.}_
+
+## Specs
+
+* 
 
 ## Setup/Installation Requirements
 
@@ -15,7 +19,7 @@ _{This is a detailed description of your application. Its purpose and usage.  Gi
 * _Clone this GitHub repository_
 
 ```
-git clone https://github.com/XXXXXXXXX/XXXXXXXX.git
+git clone https://github.com/LeeMellon/Reivew12-DrLookup.git
 ```
 
 * _Setup Webpack and other dependencies by typing 'npm install' into the console_
@@ -37,7 +41,6 @@ git clone https://github.com/XXXXXXXXX/XXXXXXXX.git
 _{Are there issues that have not yet been resolved that you want to let users know you know?  Outline any issues that would impact use of your application.  Share any workarounds that are in place. }_
 
 ## Support and contact details
-
 
 _To suggest changes, submit a pull request in the GitHub repository._
 
