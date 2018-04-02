@@ -6,7 +6,7 @@ export class drAPI{
   nameSearch(name){
     return new Promise(function(resolve, reject){
       let request = new XMLHttpRequest()
-      let url = `https://api.betterdoctor.com/2016-03-01/doctors?name=${name}&location=or-portland&skip=0&limit=10&user_key=${process.env.API_KEY}`
+      let url = `https://api.betterdoctor.com/2016-03-01/doctors?name=${name}&location=or-portland&skip=0&limit=10&user_key=${process.env.exports.apiKey}`
       request.onload = function() {
         if (this.status == 200) {
           resolve(request.response)
@@ -24,7 +24,7 @@ export class drAPI{
   symptomSearch(symptom){
     return new Promise(function(resolve, reject){
       let request = new XMLHttpRequest()
-      let url = `  https://api.betterdoctor.com/2016-03-01/doctors?query=${symptom}&location=or-portland&skip=0&limit=10&user_key=${process.env.API_KEY}`
+      let url = `  https://api.betterdoctor.com/2016-03-01/doctors?query=${symptom}&location=or-portland&skip=0&limit=10&user_key=${process.env.exports.apiKey}`
       request.onload = function() {
         if (this.status == 200) {
           resolve(request.response)
@@ -95,7 +95,7 @@ parseDisplay(drBox){
       }
       let appendedDiv = '<div class="dr-div"><img src="'+ doc.drImg +'"alt=" picture of Dr' +  doc.lName + '">  <h3>' + doc.fName + ' ' + doc.lName + '</h3>' + schoolSpec + '<h4> Bio: '+ doc.bio +'</h4><br><h4> Address: '+ doc.street + '<br>' + doc.city + ',Or' + doc.zip + '</h4>' + webSite + '<h5> Accepting new Patients ' + accepting + '</h5><br></div>'
 
-    
+
       $("#results").append(appendedDiv)
     })
   }

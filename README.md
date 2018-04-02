@@ -40,6 +40,12 @@ git clone https://github.com/LeeMellon/Reivew12-DrLookup.git
 
 * _Next type 'npm run build' to make sure everything is installed correctly._
 
+* _In your root folder create a file named .env, and one called .gitignore (make sure you have the periods)._
+
+* _In this file, save your API key as exports.apiKey=INSERT_API_KEY_HERE._
+
+* _Make sure to include your .env file in your .gitignore file.   
+
 * _You can type 'npm test' to run the testing routine._
 
 * _Run the program by typing 'npm run start_
